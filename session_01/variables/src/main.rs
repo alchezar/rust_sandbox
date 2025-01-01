@@ -1,3 +1,5 @@
+use authentication::read_line;
+
 fn double(n: i32) -> i32 {
     n * 2
 }
@@ -20,12 +22,6 @@ fn greet_borrow(s: &String) {
 
 fn greet_borrow_mut(s: &mut String) {
     *s = format!("Hello {}", s);
-}
-
-fn read_line() -> String {
-    let mut input: String = String::new();
-    std::io::stdin().read_line(&mut input).unwrap();
-    input.trim().to_string()
 }
 
 fn main() {
