@@ -1,3 +1,4 @@
+use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
 pub fn greet_user(name: &str) -> String {
@@ -16,13 +17,13 @@ pub enum LoginAction {
     Denied,
 }
 
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone, Serialize, Deserialize)]
 pub enum LoginRole {
     Admin,
     User,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct User {
     pub username: String,
     pub password: String,
@@ -39,11 +40,27 @@ impl User {
     }
 }
 
-pub fn get_users() -> Vec<User> {
+pub fn get_default_users() -> Vec<User> {
     vec![
         User::new("admin", "password", LoginRole::Admin),
         User::new("ivan", "password", LoginRole::User),
     ]
+}
+
+fn get_users() -> HashMap<String, User> {
+    let users_path = std::path::Path::new("users.json");
+    if users_path.exists() {
+        // load the file!
+	    let users_json = std::fs::read_to_string(users_path).unwrap();
+	    let users: HashMap<String, User> = serde_json::from_str(&users_json).unwrap();
+	    users
+    } else {
+        // create a file and return it
+        let users: HashMap<String, User> = get_hash_users();
+        let users_json = serde_json::to_string(&users).unwrap();
+        std::fs::write(users_path, users_json).unwrap();
+        users
+    }
 }
 
 fn get_hash_users() -> HashMap<String, User> {
@@ -60,7 +77,7 @@ fn get_hash_users() -> HashMap<String, User> {
 }
 
 fn get_admin_users() -> Vec<String> {
-    get_users()
+    get_default_users()
         .into_iter()
         .filter(|u| u.role == LoginRole::Admin)
         .map(|u| u.username)
@@ -69,7 +86,7 @@ fn get_admin_users() -> Vec<String> {
 
 pub fn login(username: &str, password: &str) -> Option<LoginAction> {
     let username: String = username.to_lowercase();
-    let users: HashMap<String, User> = get_hash_users();
+    let users: HashMap<String, User> = get_users();
     if let Some(user) = users.get(&username) {
         if user.password == password {
             return Some(LoginAction::Granted(user.role.clone()));
