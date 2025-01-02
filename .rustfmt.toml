@@ -1,0 +1,7 @@
+indent_style = "Block"
+brace_style = "AlwaysNextLine"
+control_brace_style = "AlwaysNextLine"
+hard_tabs = true
+max_width = 120
+fn_call_width = 80
+struct_lit_width = 40
