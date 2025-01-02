@@ -36,16 +36,24 @@ impl User {
     }
 }
 
-pub fn get_users() -> [User; 2] {
-    [
+pub fn get_users() -> Vec<User> {
+    vec![
         User::new("admin", "password", LoginRole::Admin),
         User::new("ivan", "password", LoginRole::User),
     ]
 }
 
+fn get_admin_users() -> Vec<String> {
+    get_users()
+        .into_iter()
+        .filter(|u| u.role == LoginRole::Admin)
+        .map(|u| u.username)
+        .collect()
+}
+
 pub fn login(username: &str, password: &str) -> Option<LoginAction> {
     let username: String = username.to_lowercase();
-    let users: [User; 2] = get_users();
+    let users: Vec<User> = get_users();
     if let Some(user) = users.iter().find(|u: &&User| u.username == username) {
         if user.password == password {
             return Some(LoginAction::Granted(user.role.clone()));
@@ -67,9 +75,18 @@ mod tests {
 
     #[test]
     fn test_login() {
-        assert_eq!(login("admin", "password"), Some(LoginAction::Granted(LoginRole::Admin)));
-        assert_eq!(login("Admin", "password"), Some(LoginAction::Granted(LoginRole::Admin)));
-        assert_eq!(login("ivan", "password"), Some(LoginAction::Granted(LoginRole::User)));
+        assert_eq!(
+            login("admin", "password"),
+            Some(LoginAction::Granted(LoginRole::Admin))
+        );
+        assert_eq!(
+            login("Admin", "password"),
+            Some(LoginAction::Granted(LoginRole::Admin))
+        );
+        assert_eq!(
+            login("ivan", "password"),
+            Some(LoginAction::Granted(LoginRole::User))
+        );
         assert_eq!(login("admin", "12345678"), Some(LoginAction::Denied));
         assert_eq!(login("new", "user"), None);
     }
