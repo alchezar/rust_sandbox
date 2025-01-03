@@ -1,5 +1,6 @@
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
+use std::path::Path;
 
 pub fn hash_password(password: &str) -> String {
 	use sha2::Digest;
@@ -54,8 +55,14 @@ pub fn get_default_users() -> Vec<User> {
 	]
 }
 
-fn get_users() -> HashMap<String, User> {
-	let users_path = std::path::Path::new("users.json");
+pub fn save_users(users: HashMap<String, User>) {
+	let users_path: &Path = Path::new("users.json");
+	let users_json = serde_json::to_string_pretty(&users).unwrap();
+	std::fs::write(users_path, &users_json).unwrap();
+}
+
+pub fn get_users() -> HashMap<String, User> {
+	let users_path: &Path = Path::new("users.json");
 	if users_path.exists() {
 		// load the file!
 		let users_json = std::fs::read_to_string(users_path).unwrap();
@@ -77,13 +84,13 @@ fn get_hash_users() -> HashMap<String, User> {
 	users
 }
 
-fn get_admin_users() -> Vec<String> {
-	get_default_users()
-		.into_iter()
-		.filter(|u| u.role == LoginRole::Admin)
-		.map(|u| u.username)
-		.collect()
-}
+// fn get_admin_users() -> Vec<String> {
+// 	get_default_users()
+// 		.into_iter()
+// 		.filter(|u| u.role == LoginRole::Admin)
+// 		.map(|u| u.username)
+// 		.collect()
+// }
 
 pub fn login(username: &str, password: &str) -> Option<LoginAction> {
 	let username: String = username.to_lowercase();
