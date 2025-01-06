@@ -2,13 +2,20 @@
 
 struct Product {
 	name: String,
+	category: ProductCategory,
 	price: f32,
 	in_stock: bool,
 }
 
+enum ProductCategory{
+	Books,
+	Cloth,
+	Electronic
+}
+
 impl Product {
-	fn new(name: String, price: f32) -> Product {
-		Self { name, price, in_stock: true }
+	fn new(name: String, category: ProductCategory, price: f32) -> Product {
+		Self { name, category, price, in_stock: true }
 	}
 
 	fn get_default_sales_tax() -> f32 {
@@ -30,7 +37,7 @@ impl Product {
 }
 
 pub fn run() {
-	let mut book = Product::new(String::from("Potter"), 28.85);
+	let mut book = Product::new(String::from("Potter"), ProductCategory::Books, 28.85);
 	let _price = book.price;
 	book.in_stock = false;
 

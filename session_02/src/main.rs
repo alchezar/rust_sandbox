@@ -1,5 +1,5 @@
 mod bootcamp;
 
 fn main() {
-	bootcamp::book_struct::run()
+	bootcamp::command_enum::run()
 }
