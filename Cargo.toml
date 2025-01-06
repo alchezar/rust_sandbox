@@ -12,4 +12,5 @@ members = [
 	"session_01/authentication",
 	"session_01/login",
 	"session_01/login_manager",
+	"session_02",
 ]
