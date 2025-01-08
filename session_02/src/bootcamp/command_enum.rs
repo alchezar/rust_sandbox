@@ -1,5 +1,7 @@
 ﻿// IKinder
 
+#![allow(dead_code, unused_variables)]
+
 enum Command {
 	Undo,
 	Redo,

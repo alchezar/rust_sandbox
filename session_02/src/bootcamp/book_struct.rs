@@ -1,5 +1,7 @@
 ﻿// IKinder
 
+#![allow(dead_code, unused_variables)]
+
 struct Product {
 	name: String,
 	category: ProductCategory,
