@@ -1,4 +1,6 @@
-﻿enum Command {
+﻿// IKinder
+
+enum Command {
 	Undo,
 	Redo,
 	AddText(String),

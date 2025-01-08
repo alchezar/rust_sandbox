@@ -1,5 +1,5 @@
 mod bootcamp;
 
 fn main() {
-	bootcamp::command_enum::run()
+	bootcamp::option_result::run()
 }
