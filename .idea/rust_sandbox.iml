@@ -8,8 +8,11 @@
       <sourceFolder url="file://$MODULE_DIR$/session_01/login/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/session_01/login_manager/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/session_02/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/session_02/bank/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/session_02/bank/tests" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/session_01/variables/target" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
+      <excludeFolder url="file://$MODULE_DIR$/session_02/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
