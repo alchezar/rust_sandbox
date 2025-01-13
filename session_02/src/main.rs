@@ -10,5 +10,5 @@ fn main() {
 	// let timeout: i32 = rand::rng().random_range(100..500);
 	// println!("Timeout is {}", timeout);
 
-	bootcamp::lifetime::run();
+	bootcamp::smart_pointers::run();
 }
