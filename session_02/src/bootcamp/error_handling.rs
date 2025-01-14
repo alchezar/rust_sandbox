@@ -2,11 +2,10 @@
 
 #![allow(dead_code, unused_variables)]
 
+use anyhow::Context;
 use std::collections::HashMap;
-use std::error::Error;
-use std::fmt::{Debug, Display, Formatter};
+use std::fmt::Debug;
 use std::io::stdin;
-use std::num::ParseIntError;
 
 #[derive(Debug)]
 struct Expiration {
@@ -21,83 +20,29 @@ struct Card {
 	cvv: u32,
 }
 
+#[derive(thiserror::Error, Debug)]
 enum CreditCardError {
+	#[error("{0}")]
 	InvalidInput(String),
-	Other(Box<dyn Error>, String),
+	#[error(transparent)]
+	Other(#[from] anyhow::Error),
 }
 
-impl Debug for CreditCardError {
-	fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
-		match self {
-			Self::InvalidInput(msg) => write!(f, "{self}\n{msg}"),
-			Self::Other(e, msg) => write!(f, "{self}\n{msg}\n\nCaused by:\n\t{e:?}"),
-		}
-	}
-}
-
-impl Display for CreditCardError {
-	fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-		f.write_str("Credit card error: Could not retrieve credit card.")
-	}
-}
-
-impl Error for CreditCardError {
-	fn source(&self) -> Option<&(dyn Error + 'static)> {
-		match self {
-			CreditCardError::InvalidInput(_) => None,
-			CreditCardError::Other(e, _) => Some(e.as_ref()),
-		}
-	}
-}
-
+#[derive(thiserror::Error, Debug)]
+#[error("{msg}")]
 struct ParsePaymentInfoError {
-	source: Option<Box<dyn Error>>,
+	source: Option<anyhow::Error>,
 	msg: String,
-}
-
-impl Debug for ParsePaymentInfoError {
-	fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
-		write!(f, "{self} \n\t{}", self.msg)?;
-
-		if let Some(e) = self.source.as_ref() {
-			write!(f, "\n\nCaused by: \n\t{e:?}")?;
-		}
-
-		Ok(())
-	}
-}
-
-impl From<ParseIntError> for ParsePaymentInfoError {
-	fn from(err: ParseIntError) -> Self {
-		ParsePaymentInfoError { source: Some(Box::new(err)), msg: "".to_owned() }
-	}
-}
-
-impl Display for ParsePaymentInfoError {
-	fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-		f.write_str("Parsing payment error: invalid payment info!")
-	}
-}
-
-impl Error for ParsePaymentInfoError {
-	fn source(&self) -> Option<&(dyn Error + 'static)> {
-		self.source.as_deref()
-	}
 }
 
 fn parse_card_numbers(card: &str) -> Result<Vec<u32>, ParsePaymentInfoError> {
 	let numbers = card
 		.split(" ")
 		.into_iter()
-		.map(|s| {
-			s.parse().map_err(|_| ParsePaymentInfoError {
-				source: None,
-				msg: format!("{s:?} could not be parsed as u32"),
-			})
-		})
+		.map(|s| s.parse().with_context(|| format!("{s:?} could not be parsed as u32")))
 		.collect::<Result<Vec<u32>, _>>()
 		.map_err(|e| ParsePaymentInfoError {
-			source: Some(Box::new(e)),
+			source: Some(e),
 			msg: format!("Failed to parse input as numbers, Input: {card}."),
 		})?;
 	Ok(numbers)
@@ -135,7 +80,8 @@ fn get_credit_card_info(credit_cards: &HashMap<&str, &str>, name: &str) -> Resul
 		.get(name)
 		.ok_or(CreditCardError::InvalidInput(format!("No credit card was found for {name}!")))?;
 	let card = parse_card(card_string)
-		.map_err(|e| CreditCardError::Other(Box::new(e), format!("{name}'s card could not be parsed!")))?;
+		.with_context(|| format!("{name}'s card could not be parsed!"))
+		.map_err(|e| CreditCardError::Other(e))?;
 	Ok(card)
 }
 
@@ -158,7 +104,7 @@ pub fn run() {
 		Err(err) => {
 			match &err {
 				CreditCardError::InvalidInput(msg) => println!("{msg}"),
-				CreditCardError::Other(_, _) => println!("\nSomething went wrong, try again!"),
+				CreditCardError::Other(_) => println!("\nSomething went wrong, try again!"),
 			}
 
 			log::error!("\n{err:?}")
