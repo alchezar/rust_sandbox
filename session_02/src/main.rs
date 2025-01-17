@@ -5,5 +5,5 @@
 mod bootcamp;
 
 fn main() {
-	bootcamp::error_handling::run();
+	
 }
