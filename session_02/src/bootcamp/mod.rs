@@ -9,3 +9,4 @@ pub mod traits;
 pub mod deref;
 pub mod error_handling;
 pub mod closure;
+pub mod iterator;

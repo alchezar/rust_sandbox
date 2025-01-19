@@ -5,5 +5,5 @@
 mod bootcamp;
 
 fn main() {
-	
+	bootcamp::iterator::run();
 }
