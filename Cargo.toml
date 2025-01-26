@@ -15,5 +15,6 @@ members = [
 	"session_01/login",
 	"session_01/login_manager",
 	"session_02",
-	"session_02/bank"
+	"session_02/bank",
+	"session_02/procedural_macros"
 ]

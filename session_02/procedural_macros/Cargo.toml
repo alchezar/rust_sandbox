@@ -1,0 +1,13 @@
+[package]
+name = "procedural_macros"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+chrono = "0.4"
+darling = "0.20"
+quote = "1.0"
+syn = { version="2.0", features = ["full"] }

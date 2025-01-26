@@ -11,3 +11,4 @@ pub mod error_handling;
 pub mod closure;
 pub mod iterator;
 pub mod threads;
+pub mod macros;
