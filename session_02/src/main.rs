@@ -9,5 +9,5 @@ use std::time::Duration;
 mod bootcamp;
 
 fn main() {
-	bootcamp::macros::run();
+	bootcamp::unsafe_rust::run();
 }

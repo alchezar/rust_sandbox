@@ -12,3 +12,4 @@ pub mod closure;
 pub mod iterator;
 pub mod threads;
 pub mod macros;
+pub mod unsafe_rust;
