@@ -11,6 +11,7 @@
       <sourceFolder url="file://$MODULE_DIR$/session_02/bank/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/session_02/bank/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/session_02/procedural_macros/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/session_03/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/session_01/variables/target" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
       <excludeFolder url="file://$MODULE_DIR$/session_02/target" />
