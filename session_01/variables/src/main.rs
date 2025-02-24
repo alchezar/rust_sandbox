@@ -1,3 +1,4 @@
+#[allow(dead_code, unused_variables, unused_imports, unused_mut)]
 use authentication::read_line;
 
 fn double(n: i32) -> i32 {
