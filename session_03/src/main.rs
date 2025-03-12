@@ -4,6 +4,6 @@
 mod themes;
 
 fn main() {
-	themes::option_combinators::run();
+	themes::iterators::activity();
 
 }
