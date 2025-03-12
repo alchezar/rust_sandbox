@@ -1,6 +1,5 @@
 ﻿// IKinder
 
-#[allow(dead_code, unused_variables, unused_imports, unused_mut)]
 #[derive(Debug)]
 struct User {
 	user_id: i32,
@@ -22,7 +21,7 @@ fn find_user(name: &str) -> Option<i32> {
 	}
 }
 
-pub fn run() {
+fn map_combinators() {
 	let names: Vec<&str> = vec!["Sam", "Matt", "Katie", "John"];
 	let users: Vec<Option<User>> = names
 		.iter()
@@ -36,3 +35,5 @@ pub fn run() {
 		}
 	}
 }
+
+pub fn run() {}

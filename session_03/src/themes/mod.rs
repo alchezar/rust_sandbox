@@ -2,4 +2,5 @@
 
 pub mod ownership;
 pub mod result;
-pub mod combinator;
+pub mod map_combinator;
+pub mod option_combinators;

@@ -1,7 +1,5 @@
 ﻿// IKinder
 
-#[allow(dead_code, unused_variables, unused_imports, unused_mut)]
-
 enum Color {
 	Brown,
 	Red,
