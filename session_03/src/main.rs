@@ -4,5 +4,5 @@
 mod themes;
 
 fn main() {
-	themes::if_while_let::if_let();
+	themes::modules::run();
 }

@@ -1,8 +1,9 @@
 ﻿// IKinder
 
-pub mod ownership;
-pub mod result;
+pub mod if_while_let;
+pub mod iterators;
 pub mod map_combinator;
 pub mod option_combinators;
-pub mod iterators;
-pub mod if_while_let;
+pub mod ownership;
+pub mod result;
+pub mod modules;
