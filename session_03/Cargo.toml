@@ -3,4 +3,10 @@ name = "session_03"
 version = "0.1.0"
 edition = "2024"
 
+[lib]
+name = "themes"
+path = "src/themes/mod.rs"
+
 [dependencies]
+humantime = "2.2.0"
+chrono = "0.4.40"
