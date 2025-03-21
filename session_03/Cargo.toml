@@ -4,8 +4,8 @@ version = "0.1.0"
 edition = "2024"
 
 [lib]
-name = "themes"
-path = "src/themes/mod.rs"
+name = "basic_themes"
+path = "src/basic_themes/mod.rs"
 
 [dependencies]
 humantime = "2.2.0"
