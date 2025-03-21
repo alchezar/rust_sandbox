@@ -1,16 +1,20 @@
 ﻿// IKinder
 
+use std::collections::HashMap;
+
 enum MainMenu {
-	AddBill,
-	ViewBill,
+	Add,
+	View,
+	Remove,
 	Exit,
 }
 
 impl MainMenu {
 	fn from_str(input: &str) -> Option<Self> {
 		match input {
-			"1" => Some(MainMenu::AddBill),
-			"2" => Some(MainMenu::ViewBill),
+			"1" => Some(MainMenu::Add),
+			"2" => Some(MainMenu::View),
+			"3" => Some(MainMenu::Remove),
 			"0" => Some(MainMenu::Exit),
 			_ => None,
 		}
@@ -19,6 +23,7 @@ impl MainMenu {
 		println!("=== Bill Manager ===");
 		println!("1.Add Bill");
 		println!("2.View Bill");
+		println!("3.Remove Bill");
 		println!("0.Exit");
 		println!("Enter selection:");
 	}
@@ -31,21 +36,26 @@ struct Bill {
 }
 
 struct Bills {
-	inner: Vec<Bill>,
+	inner: HashMap<String, Bill>,
 }
 
 impl Bills {
 	fn new() -> Self {
-		Self { inner: vec![] }
+		Self { inner: HashMap::new() }
 	}
 	fn add(&mut self, bill: Bill) {
 		self.inner
-			.push(bill);
+			.insert(bill.name.to_string(), bill);
 	}
 	fn get_all(&self) -> Vec<&Bill> {
 		self.inner
-			.iter()
+			.values()
 			.collect()
+	}
+	fn remove(&mut self, name: &str) -> bool {
+		self.inner
+			.remove(name)
+			.is_some()
 	}
 }
 
@@ -114,6 +124,19 @@ mod menu {
 			println!("{:?}", bill)
 		}
 	}
+	pub fn remove_bill(bills: &mut Bills) {
+		view_bills(bills);
+		println!("Enter bill name to remove: ");
+		let name = match get_input() {
+			Some(name) => name,
+			None => return,
+		};
+		if Bills::remove(bills, name.as_str()) {
+			println!("Bill {name} removed!");
+		} else {
+			println!("Bill {name} was not found!");
+		}
+	}
 }
 
 pub fn run() {
@@ -123,8 +146,9 @@ pub fn run() {
 		MainMenu::show();
 		let input = get_input().expect("No data entered");
 		match MainMenu::from_str(&input) {
-			Some(MainMenu::AddBill) => menu::add_bill(&mut bills),
-			Some(MainMenu::ViewBill) => menu::view_bills(&bills),
+			Some(MainMenu::Add) => menu::add_bill(&mut bills),
+			Some(MainMenu::View) => menu::view_bills(&bills),
+			Some(MainMenu::Remove) => menu::remove_bill(&mut bills),
 			Some(MainMenu::Exit) => return,
 			None => (),
 		}
