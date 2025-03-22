@@ -6,4 +6,5 @@ mod advance_themes;
 
 fn main() {
 	advance_themes::traits::activity();
+	basic_themes::crates_modules::run();
 }

@@ -53,16 +53,14 @@ pub fn run() {
 
 	// Modules.
 	{
-		use crate::crates_modules::msg as mes;
-
 		let hello = {
 			let msg = "hello ";
-			let msg = mes::trim(msg);
-			mes::capitalize(msg)
+			let msg = msg::trim(msg);
+			msg::capitalize(msg)
 		};
 		let world = {
 			let msg = "world";
-			mes::exciting(msg)
+			msg::exciting(msg)
 		};
 		println!("{}, {}", hello, world)
 	};
