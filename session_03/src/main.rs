@@ -3,8 +3,8 @@
 #![allow(dead_code, unused_variables, unused_imports, unused_mut)]
 
 mod advance_themes;
-use advance_themes::generic_functions as gen_fun;
+use advance_themes::generic_structures as current;
 
 fn main() {
-	gen_fun::activity();
+	current::activity();
 }
