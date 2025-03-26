@@ -71,7 +71,7 @@ impl Perimeter for Square {
 	}
 }
 
-use core::fmt::Debug;
+use std::fmt::Debug;
 fn print_perimeter(shape: impl Perimeter + Debug) {
 	println!("{:?} perimeter: {}", shape, shape.get_perimeter());
 }

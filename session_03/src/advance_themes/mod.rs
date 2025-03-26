@@ -5,3 +5,4 @@
 pub mod traits;
 pub mod generic_functions;
 pub mod generic_structures;
+pub mod trait_objects;
