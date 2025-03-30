@@ -7,3 +7,4 @@ pub mod generic_functions;
 pub mod generic_structures;
 pub mod trait_objects;
 pub mod lifetimes;
+pub mod custom_error;
