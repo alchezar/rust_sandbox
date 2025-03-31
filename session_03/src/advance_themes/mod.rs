@@ -8,3 +8,4 @@ pub mod generic_structures;
 pub mod trait_objects;
 pub mod lifetimes;
 pub mod custom_error;
+pub mod new_type_pattern;
