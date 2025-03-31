@@ -9,3 +9,4 @@ pub mod trait_objects;
 pub mod lifetimes;
 pub mod custom_error;
 pub mod new_type_pattern;
+pub mod type_state_pattern;
