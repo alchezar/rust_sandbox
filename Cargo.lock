@@ -737,6 +737,7 @@ dependencies = [
  "humantime",
  "rand",
  "thiserror",
+ "tokio",
 ]
 
 [[package]]

@@ -3,9 +3,8 @@
 #![allow(dead_code, unused_variables, unused_imports, unused_mut)]
 
 mod advance_themes;
-use advance_themes::from_into as current;
+use advance_themes::threads as current;
 
 fn main() {
 	current::activity();
-
 }
