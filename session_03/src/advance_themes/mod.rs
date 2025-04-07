@@ -15,3 +15,4 @@ pub mod arrays_slices;
 pub mod from_into;
 pub mod threads;
 pub mod channels;
+pub mod smart_pointers;
