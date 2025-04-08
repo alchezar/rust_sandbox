@@ -16,3 +16,4 @@ pub mod from_into;
 pub mod threads;
 pub mod channels;
 pub mod smart_pointers;
+pub mod arc_mutex;
