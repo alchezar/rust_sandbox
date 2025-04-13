@@ -18,3 +18,4 @@ pub mod channels;
 pub mod smart_pointers;
 pub mod arc_mutex;
 pub mod ordering;
+pub mod iterator;
