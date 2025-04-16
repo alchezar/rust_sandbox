@@ -8,4 +8,3 @@ use advance_themes::iterator as current;
 fn main() {
 	current::activity1();
 }
-

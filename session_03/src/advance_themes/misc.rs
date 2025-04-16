@@ -142,3 +142,53 @@ mod topic_164 {
 		let smiley = r"😅";
 	}
 }
+
+// -----------------------------------------------------------------------------
+// 169. Serde crate
+// -----------------------------------------------------------------------------
+
+mod topic_169 {
+	use serde::{Deserialize, Serialize};
+
+	#[derive(Serialize, Deserialize, Debug)]
+	struct Form {
+		email: String,
+		name: String,
+		age: usize,
+	}
+
+	pub fn main() {
+		let form = Form {
+			email: "kinder.wit@gmail.com".to_owned(),
+			name: "Ivan".to_owned(),
+			age: 32,
+		};
+		let serialized = serde_json::to_string(&form).expect("failed to serialize");
+		println!("{}", serialized);
+
+		let deserialized = serde_json::from_str::<Form>(&serialized).expect("failed to deserialize");
+		println!("{:?}", deserialized)
+	}
+}
+
+// -----------------------------------------------------------------------------
+// 170. Rand crate
+// -----------------------------------------------------------------------------
+
+mod topic_170 {
+	use rand::prelude::*;
+
+	pub fn main() {
+		let number = rand::random::<u8>();
+		let yes_no = rand::random::<bool>();
+
+		let mut rng = rand::rng();
+		let number = rng.random_range(0..20);
+
+		let letters = ['a', 'b', 'c'];
+		let letter = letters.iter().choose(&mut rng);
+
+		let mut letters = letters;
+		letters.shuffle(&mut rng)
+	}
+}

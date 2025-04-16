@@ -16,3 +16,5 @@ crossbeam-channel = "*"
 colored = "*"
 parking_lot = "*"
 backoff = "*"
+serde = { version = "*", features = ["derive"]}
+serde_json = "*"

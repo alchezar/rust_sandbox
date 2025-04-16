@@ -825,6 +825,8 @@ dependencies = [
  "humantime",
  "parking_lot",
  "rand 0.9.0",
+ "serde",
+ "serde_json",
  "thiserror",
 ]
 
