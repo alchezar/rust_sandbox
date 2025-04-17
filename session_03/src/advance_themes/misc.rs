@@ -144,7 +144,7 @@ mod topic_164 {
 }
 
 // -----------------------------------------------------------------------------
-// 169. Serde crate
+// 169. Serde crate.
 // -----------------------------------------------------------------------------
 
 mod topic_169 {
@@ -172,7 +172,7 @@ mod topic_169 {
 }
 
 // -----------------------------------------------------------------------------
-// 170. Rand crate
+// 170. Rand crate.
 // -----------------------------------------------------------------------------
 
 mod topic_170 {
@@ -190,5 +190,43 @@ mod topic_170 {
 
 		let mut letters = letters;
 		letters.shuffle(&mut rng)
+	}
+}
+
+// -----------------------------------------------------------------------------
+// 173. Chrono crate.
+// -----------------------------------------------------------------------------
+
+pub(crate) mod topic_173 {
+	use chrono::Duration;
+	use chrono::prelude::*;
+
+	pub fn main() {
+		// EST is UTC+2
+		let est = FixedOffset::east_opt(2 * 3600)
+			.expect("invalid UTC offset")
+			.with_ymd_and_hms(2025, 04, 17, 16, 48, 34)
+			.single()
+			.expect("not single unique result");
+		println!("{}", est);
+		let utc = est.with_timezone(&Utc);
+		let utc: DateTime<Utc> = est.into();
+		let utc = DateTime::<Utc>::from(est);
+
+		let now = Utc::now();
+		let an_hour = Duration::hours(1);
+		let when = now + an_hour;
+		let duration = when - now;
+		println!("{}", duration.num_minutes());
+
+		let date_str = "2025-04-17 16:48:34 +02:00";
+		let fmt_str = "%Y-%m-%d %H:%M:%S %z";
+		let date = DateTime::parse_from_str(date_str, fmt_str).expect("invalid date");
+
+		let date = Local::now();
+		let date_str = date
+			.format("%Y-%m-%d %H:%M:%S")
+			.to_string();
+		println!("{}", date_str);
 	}
 }
