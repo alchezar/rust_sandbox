@@ -21,3 +21,4 @@ pub mod ordering;
 pub mod iterator;
 pub mod macros;
 pub mod misc;
+pub mod async_functions;

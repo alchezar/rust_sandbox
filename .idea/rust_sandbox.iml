@@ -12,6 +12,7 @@
       <sourceFolder url="file://$MODULE_DIR$/session_02/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/session_03/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/session_03/src/clipstash/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/session_02/target" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
