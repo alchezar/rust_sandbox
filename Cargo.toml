@@ -17,4 +17,5 @@ members = [
 	"session_02",
 	"session_02/bank",
 	"session_02/procedural_macros",
-	"session_03", "session_04"]
+	"session_03",
+	"session_04"]
