@@ -5,8 +5,8 @@
 /// character in `s` appears twice except for one, return from the
 /// function the character which **appears only ones**!
 /// # Example:
-/// Input - `"aabdb"`
-/// Expected Output - `"d"`
+/// Input - `"aabdb"`\
+/// Expected Output - `"d"`\
 /// Explanation - `"a"` and `"b"` appear twice and `"d"` appears only ones.
 ///
 /// ```
@@ -32,8 +32,8 @@ fn single_char(str: String) -> String {
 /// and `s2`, and returns `true` if `s1` can be constructed using the
 /// letters from `s2` or `false` otherwise.
 /// # Example:
-/// Input - `"aab"`, `"bcaa"`
-/// Expected Output - `true`
+/// Input - `"aab"`, `"bcaa"`\
+/// Expected Output - `true`\
 /// Explanation - `"bcaa"` contains all the letters from `"aab"`
 ///
 /// ```
@@ -70,13 +70,13 @@ fn is_constructable(str1: String, str2: String) -> bool {
 /// `1` <= `n` <= `1_000_000`
 ///
 /// # Examples:
-/// Input - `10`
-/// Expected Output - `4`
+/// Input - `10`\
+/// Expected Output - `4`\
 /// Explanation - There are `4` prime numbers less than `10`: `2`, `3`,
 /// `5`,`7`
 ///
-/// Input - `13`
-/// Expected Output - `5`
+/// Input - `13`\
+/// Expected Output - `5`\
 /// Explanation - There are `5` prime numbers less than `13`: `2`, `3`,
 /// `5`, `7`, `11` - note that `13` does not count!
 ///
