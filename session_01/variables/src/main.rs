@@ -1,10 +1,13 @@
-#[allow(dead_code, unused_variables, unused_imports, unused_mut)]
+#![allow(dead_code, unused_variables, unused_imports, unused_mut)]
+
 use authentication::read_line;
 
+#[allow(dead_code)]
 fn double(n: i32) -> i32 {
 	n * 2
 }
 
+#[allow(dead_code)]
 fn double_or_nothing(n: i32) -> i32 {
 	if n > 0 {
 		n * 2

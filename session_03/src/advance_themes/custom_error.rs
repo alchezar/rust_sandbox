@@ -72,7 +72,7 @@ enum PassError {
 }
 
 fn swipe_card() -> Result<SubwayPass, PassError> {
-	match rand::rng().random::<bool>() {
+	match rand::thread_rng().gen_bool(0.5) {
 		true => Ok(SubwayPass {
 			id: 0,
 			funds: 200,

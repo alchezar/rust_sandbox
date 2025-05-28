@@ -151,7 +151,7 @@ impl AwaitingPickup {
 struct EndCustody(LuggageId);
 impl EndCustody {
 	fn deliver(self) -> Result<String, String> {
-		match rand::rng().random_bool(0.5) {
+		match rand::thread_rng().gen_bool(0.5) {
 			true => Ok("Delivered".to_owned()),
 			false => Err("Lost".to_owned()),
 		}
