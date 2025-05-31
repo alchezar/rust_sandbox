@@ -183,8 +183,8 @@ mod topic_170 {
 		let number = rand::random::<u8>();
 		let yes_no = rand::random::<bool>();
 
-		let mut rng = rand::thread_rng();
-		let number = rng.gen_range(0..20);
+		let mut rng = rand::rng();
+		let number = rand::random_range(0..20);
 
 		let letters = ['a', 'b', 'c'];
 		let letter = letters.iter().choose(&mut rng);
