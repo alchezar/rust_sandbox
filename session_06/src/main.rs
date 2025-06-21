@@ -6,19 +6,17 @@
 mod apps;
 
 mod prelude {
-	pub use crate::apps::{pr_scr, temp_conv};
+	pub use crate::apps::{pr_scr, temp_conv, xor_cipher};
+	pub use std::collections::HashMap;
 }
 
 use prelude::*;
 
 fn main() {
-	if let Ok(current_dir) = std::env::current_dir() {
-		println!("{}", current_dir.display());
-	}
+	println!("Hello, world!");
+	xor_cipher::main();
+}
 
-	let a = vec![1, 2];
-	let test = a.get(3).unwrap_or_else(|| {
-		println!("Out of bounds");
-		&0
-	});
+struct Deck {
+	cards: [String; 52],
 }

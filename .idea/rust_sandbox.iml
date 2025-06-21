@@ -16,8 +16,10 @@
       <sourceFolder url="file://$MODULE_DIR$/session_04/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/session_05/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/session_06/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/session_01/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/session_02/target" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
+      <excludeFolder url="file://$MODULE_DIR$/session_01/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -10,6 +10,7 @@ license = "MIT"
 [workspace]
 
 members = [
+	"session_01",
 	"session_01/variables",
 	"session_01/authentication",
 	"session_01/login",
@@ -20,4 +21,4 @@ members = [
 	"session_03",
 	"session_04",
 	"session_05",
-	"session_06"]
+	"session_06",]
