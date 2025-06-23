@@ -6,7 +6,7 @@
 mod apps;
 
 mod prelude {
-	pub use crate::apps::{pr_scr, temp_conv, xor_cipher};
+	pub use crate::apps::{md_to_html, pr_scr, temp_conv, xor_cipher};
 	pub use std::collections::HashMap;
 }
 
@@ -14,7 +14,7 @@ use prelude::*;
 
 fn main() {
 	println!("Hello, world!");
-	xor_cipher::main();
+	md_to_html::main();
 }
 
 struct Deck {
