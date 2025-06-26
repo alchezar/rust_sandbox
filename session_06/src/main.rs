@@ -16,7 +16,3 @@ fn main() {
 	println!("Hello, world!");
 	md_to_html::main();
 }
-
-struct Deck {
-	cards: [String; 52],
-}

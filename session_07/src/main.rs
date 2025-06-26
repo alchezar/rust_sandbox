@@ -10,5 +10,6 @@ pub mod prelude {
 }
 
 fn main() {
+	println!("Session 07");
 	project::cards::run();
 }
