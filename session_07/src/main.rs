@@ -6,10 +6,10 @@
 pub mod project;
 
 pub mod prelude {
-	pub use crate::project::cards;
+	pub use crate::project::{bank, cards};
 }
 
 fn main() {
 	println!("Session 07");
-	project::cards::run();
+	project::bank::run();
 }
