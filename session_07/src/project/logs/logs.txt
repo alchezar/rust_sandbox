@@ -1,0 +1,23 @@
+INFO 12:00:00 Application started.
+WARNING 12:01:00 Missing configuration defaults to 'standard mode'.
+ERROR 12:02:00 Failed to connect to the database.
+
+INFO 13:00:00 Application started.
+WARNING 13:01:00 Missing configuration defaults to 'standard mode'.
+ERROR 13:02:00 Failed to connect to the database.
+
+INFO 14:00:00 Application started.
+WARNING 14:01:00 Missing configuration defaults to 'standard mode'.
+ERROR 14:02:00 Failed to connect to the database.
+
+INFO 15:00:00 Application started.
+WARNING 15:01:00 Missing configuration defaults to 'standard mode'.
+ERROR 15:02:00 Failed to connect to the database.
+
+INFO 16:00:00 Application started.
+WARNING 16:01:00 Missing configuration defaults to 'standard mode'.
+ERROR 16:02:00 Failed to connect to the database.
+
+INFO 17:00:00 Application started.
+WARNING 17:01:00 Missing configuration defaults to 'standard mode'.
+ERROR 17:02:00 Failed to connect to the database.
