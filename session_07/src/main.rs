@@ -6,10 +6,10 @@
 pub mod project;
 
 pub mod prelude {
-	pub use crate::project::{bank, cards, logs, media, iter, lifetimes};
+	pub use crate::project::{bank, cards, generics, iter, lifetimes, logs, media};
 }
 
 fn main() {
 	println!("Session 07");
-	project::lifetimes::run();
+	project::generics::run();
 }
