@@ -11,5 +11,5 @@ pub mod prelude {
 fn main() {
 	print!("class1::session2");
 
-	prelude::scoped_threads::main();
+	prelude::footgun::main();
 }
