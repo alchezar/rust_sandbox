@@ -10,16 +10,18 @@ license = "MIT"
 [workspace]
 
 members = [
-	"session_01",
-	"session_01/variables",
-	"session_01/authentication",
-	"session_01/login",
-	"session_01/login_manager",
-	"session_02",
-	"session_02/bank",
-	"session_02/procedural_macros",
-	"session_03",
-	"session_04",
-	"session_05",
-	"session_06",
-	"session_07", ]
+	"class01",
+	"class01/session1",
+	"class01/session1/variables",
+	"class01/session1/authentication",
+	"class01/session1/login",
+	"class01/session1/login_manager",
+	"class01/session2",
+	"class02",
+	"class02/bank",
+	"class02/procedural_macros",
+	"class03",
+	"class04",
+	"class05",
+	"class06",
+	"class07", ]
