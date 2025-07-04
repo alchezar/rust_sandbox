@@ -2,6 +2,14 @@
 
 #![allow(dead_code, unused_variables, unused_imports, unused_mut)]
 
+mod theme;
+
+pub mod prelude {
+	pub use crate::theme::*;
+}
+
 fn main() {
-	println!("Hello, world!");
+	print!("class1::session2");
+
+	prelude::thread_builder::main();
 }

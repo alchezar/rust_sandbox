@@ -1,8 +1,7 @@
-// IKinder
+﻿// IKinder
 
-#![allow(dead_code, unused_variables, unused_imports, unused_mut)]
-
-fn main() {
+pub fn main() {
+	println!("::hello\n");
 	println!("Hello from main thread!");
 
 	let mut thread_handles = Vec::new();

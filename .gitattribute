@@ -1,0 +1,3 @@
+*.rs text eol=crlf
+Cargo.toml text eol=crlf
+Cargo.lock text eol=crlf

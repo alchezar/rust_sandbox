@@ -1,6 +1,8 @@
-// IKinder
+﻿// IKinder
 
-fn main() {
+pub fn main() {
+	println!("::divide_work\n");
+
 	const N_THREADS: usize = 8;
 	let to_add = (0..5000).collect::<Vec<u32>>();
 	let mut thread_handles = Vec::new();
