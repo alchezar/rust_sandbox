@@ -11,5 +11,5 @@ pub mod prelude {
 fn main() {
 	print!("class1::session2");
 
-	prelude::thread_builder::main();
+	prelude::scoped_threads::main();
 }
