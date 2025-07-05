@@ -11,5 +11,5 @@ pub mod prelude {
 fn main() {
 	print!("class1::session2");
 
-	prelude::footgun::main();
+	prelude::deadlock::main();
 }

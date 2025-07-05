@@ -5,7 +5,7 @@ use std::thread;
 pub fn main() {
 	println!("::thread_builder\n");
 
-	let _builder = thread::Builder::new()
+	thread::Builder::new()
 		.name("Named thread".to_owned())
 		.stack_size(std::mem::size_of::<usize>() * 4)
 		.spawn(my_thread)
