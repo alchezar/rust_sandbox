@@ -5,7 +5,7 @@ use std::sync::Mutex;
 static SHARED: Mutex<u32> = Mutex::new(0);
 
 pub fn main() {
-	println!("::deadlock\n");
+	crate::show_name(file!());
 
 	//deadlock();
 	poisoning();

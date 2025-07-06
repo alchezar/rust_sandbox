@@ -3,7 +3,7 @@
 use std::thread;
 
 pub fn main() {
-	println!("::thread_builder\n");
+	crate::show_name(file!());
 
 	thread::Builder::new()
 		.name("Named thread".to_owned())

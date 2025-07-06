@@ -6,7 +6,7 @@ use std::sync::RwLock;
 static USERS: Lazy<RwLock<Vec<String>>> = Lazy::new(|| RwLock::new(build_users()));
 
 pub fn main() {
-	println!("::rwlock\n");
+	crate::show_name(file!());
 
 	std::thread::spawn(|| {
 		loop {

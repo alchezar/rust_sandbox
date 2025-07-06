@@ -9,7 +9,16 @@ pub mod prelude {
 }
 
 fn main() {
-	print!("class1::session2");
+	prelude::workers::main();
+}
 
-	prelude::deadlock::main();
+fn show_name(file: &str) -> Option<()> {
+	println!(
+		"class1::session2::{}\n",
+		file.split("\\")
+			.last()?
+			.split(".")
+			.next()?
+	);
+	Some(())
 }

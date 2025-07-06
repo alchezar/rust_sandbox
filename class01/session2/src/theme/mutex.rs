@@ -5,7 +5,7 @@ use std::sync::Mutex;
 static NUMBERS: Mutex<Vec<u32>> = Mutex::new(Vec::new());
 
 pub fn main() {
-	println!("::mutex\n");
+	crate::show_name(file!());
 
 	let start = std::time::Instant::now();
 

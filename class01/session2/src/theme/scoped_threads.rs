@@ -3,7 +3,7 @@
 use std::thread;
 
 pub fn main() {
-	println!("::scoped_threads\n");
+	crate::show_name(file!());
 	const NUMBER_OF_THREADS: usize = 8;
 
 	let to_add = (0..5000).collect::<Vec<u32>>();

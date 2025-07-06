@@ -1,7 +1,7 @@
 ﻿// IKinder
 
 pub fn main() {
-	println!("::hello\n");
+	crate::show_name(file!());
 	println!("Hello from main thread!");
 
 	let mut thread_handles = Vec::new();

@@ -8,3 +8,7 @@ pub mod footgun;
 pub mod mutex;
 pub mod rwlock;
 pub mod deadlock;
+pub mod dashing;
+pub mod parking;
+pub mod channels1;
+pub mod workers;

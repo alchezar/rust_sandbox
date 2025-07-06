@@ -7,7 +7,7 @@ static mut COUNTER_1: u32 = 0;
 static COUNTER_2: AtomicU32 = AtomicU32::new(0);
 
 pub fn main() {
-	println!("::footgun\n");
+	crate::show_name(file!());
 
 	//footgun();
 	not_footgun();

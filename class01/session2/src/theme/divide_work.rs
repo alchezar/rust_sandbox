@@ -1,7 +1,7 @@
 ﻿// IKinder
 
 pub fn main() {
-	println!("::divide_work\n");
+	crate::show_name(file!());
 
 	const N_THREADS: usize = 8;
 	let to_add = (0..5000).collect::<Vec<u32>>();
