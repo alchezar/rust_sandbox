@@ -12,3 +12,6 @@ pub mod dashing;
 pub mod parking;
 pub mod channels1;
 pub mod workers;
+pub mod workers2;
+pub mod affinity;
+pub mod priority;
