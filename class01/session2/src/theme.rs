@@ -15,3 +15,5 @@ pub mod workers;
 pub mod workers2;
 pub mod affinity;
 pub mod priority;
+pub mod rayon_iters;
+pub mod rayon_scopes;

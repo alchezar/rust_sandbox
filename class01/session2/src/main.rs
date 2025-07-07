@@ -9,7 +9,7 @@ pub mod prelude {
 }
 
 fn main() {
-	prelude::priority::main();
+	prelude::rayon_scopes::main();
 }
 
 fn show_name(file: &str) -> Option<()> {
