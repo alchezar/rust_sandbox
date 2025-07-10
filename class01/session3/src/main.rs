@@ -9,7 +9,7 @@ pub mod prelude {
 }
 
 fn main() {
-	prelude::file_io::main();
+	let _ = prelude::tcp_server::main();
 }
 
 fn show_name(file: &str) -> Option<()> {
