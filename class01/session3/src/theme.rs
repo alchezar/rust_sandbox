@@ -8,3 +8,4 @@ pub mod rest_client;
 pub mod tcp_server;
 pub mod channels;
 pub mod tokio_select;
+pub mod recursion;
