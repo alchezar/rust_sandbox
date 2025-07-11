@@ -9,7 +9,7 @@ pub mod prelude {
 }
 
 fn main() {
-	let _ = prelude::recursion::main();
+	let _ = prelude::log_span::main();
 }
 
 fn show_name(file: &str) -> Option<()> {
