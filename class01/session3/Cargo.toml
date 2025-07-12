@@ -15,3 +15,5 @@ tokio = { version = "1.46.1", features = ["full"] }
 tracing = "0.1.41"
 tracing-subscriber = { version = "0.3.19", features = ["time"] }
 time = { version = "0.3.41", features = ["formatting", "macros"] }
+sqlx = { version = "0.8.6", features = ["runtime-tokio-native-tls", "sqlite", "macros", "migrate"] }
+dotenv = "0.15.0"
