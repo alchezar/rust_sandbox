@@ -9,10 +9,7 @@ pub mod prelude {
 }
 
 fn main() {
-	match prelude::db::main() {
-		Ok(()) => (),
-		Err(err) => println!("error: {}", err),
-	}
+	prelude::web_service::main();
 }
 
 fn show_name(file: &str) -> Option<()> {
