@@ -1,6 +1,6 @@
 // IKinder
 
-#![allow(dead_code, unused_variables, unused_imports, unused_mut)]
+#![allow(dead_code, unused)]
 #![warn(clippy::all, clippy::must_use_candidate)]
 
 fn main() {
