@@ -9,7 +9,7 @@ pub mod prelude {
 }
 
 fn main() {
-	prelude::dropping::main();
+	prelude::ref_count::main();
 }
 
 fn show_name(file: &str) -> Option<()> {
