@@ -58,17 +58,17 @@ fn from_into() {
 /// ----------------------------------------------------------------------------
 
 #[derive(Debug)]
-struct HashMapBucket<K, V> {
-	map: std::collections::HashMap<K, Vec<V>>,
+pub struct HashMapBucket<K, V> {
+	pub map: std::collections::HashMap<K, Vec<V>>,
 }
 impl<K, V> HashMapBucket<K, V>
 where
 	K: Eq + std::hash::Hash,
 {
-	fn new() -> Self {
+	pub fn new() -> Self {
 		Self { map: std::collections::HashMap::new() }
 	}
-	fn insert(&mut self, key: K, val: V) {
+	pub fn insert(&mut self, key: K, val: V) {
 		let vec = self
 			.map
 			.entry(key)
