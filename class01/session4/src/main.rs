@@ -9,7 +9,7 @@ pub mod prelude {
 }
 
 fn main() {
-	prelude::iterators::main();
+	prelude::cycles::main();
 }
 
 fn show_name(file: &str) -> Option<()> {
