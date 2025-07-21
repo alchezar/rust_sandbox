@@ -9,7 +9,7 @@ pub mod prelude {
 }
 
 fn main() {
-	prelude::cycles::main();
+	prelude::bytes::main();
 }
 
 fn show_name(file: &str) -> Option<()> {

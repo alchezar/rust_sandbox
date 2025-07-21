@@ -6,3 +6,6 @@ pub mod traits;
 pub mod generics;
 pub mod iterators;
 pub mod cycles;
+pub mod packing;
+pub mod bytes;
+
