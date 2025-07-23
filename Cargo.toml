@@ -20,6 +20,7 @@ members = [
 	"class01/session3",
 	"class01/session3/thumbnail_server",
 	"class01/session4",
+	"class01/session5",
 	"class02",
 	"class02/bank",
 	"class02/procedural_macros",
@@ -27,4 +28,6 @@ members = [
 	"class04",
 	"class05",
 	"class06",
-	"class07", ]
+	"class07",
+	"class08",
+	"class08/minigrep", ]
