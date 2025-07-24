@@ -2,8 +2,7 @@ use minigrep::{Config, run};
 
 fn main() {
 	println!("Hello, world!");
-	let args = std::env::args().collect::<Vec<_>>();
-	let config = Config::build(&args).unwrap_or_else(|e| {
+	let config = Config::build(std::env::args()).unwrap_or_else(|e| {
 		eprintln!("Problem parsing arguments: {}", e);
 		std::process::exit(1);
 	});
