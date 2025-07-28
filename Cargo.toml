@@ -30,4 +30,6 @@ members = [
 	"class06",
 	"class07",
 	"class08",
-	"class08/minigrep", ]
+	"class08/minigrep",
+	"class08/web_server",
+]
