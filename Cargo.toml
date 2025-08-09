@@ -21,6 +21,8 @@ members = [
 	"class01/session3/thumbnail_server",
 	"class01/session4",
 	"class01/session5",
+	"class01/session5/shared_data",
+	"class01/session5/collector",
 	"class02",
 	"class02/bank",
 	"class02/procedural_macros",
