@@ -1,7 +1,18 @@
-use shared_data::{CollectorCommandV1, DATA_COLLECTOR_ADDRESS};
+use shared_data::{CollectorCommandV1, DATA_COLLECTOR_ADDRESS, encode_v1};
+use std::collections::VecDeque;
 use std::io::Write;
+use std::net::TcpStream;
 use std::sync::mpsc::Sender;
 use std::time::Instant;
+use thiserror::Error;
+
+#[derive(Debug, Error)]
+pub enum CollectorError {
+	#[error("Unable to connect to the server.")]
+	UnableToConnect,
+	#[error("Sending the data failed.")]
+	UnableToSend,
+}
 
 fn main() {
 	let (tx, rx) = std::sync::mpsc::channel();
@@ -12,8 +23,16 @@ fn main() {
 	});
 
 	// Listen for commands to send.
+	let mut data_queue = VecDeque::with_capacity(120);
 	while let Ok(command) = rx.recv() {
-		send_command(command);
+		let encoded = encode_v1(&command);
+		data_queue.push_back(encoded);
+
+		// Send all the queue commands.
+		if send_queue(&mut data_queue).is_err() {
+			println!("Error sending command.");
+			break;
+		}
 	}
 }
 
@@ -69,9 +88,28 @@ pub fn collect_data(tx: Sender<CollectorCommandV1>) {
 	}
 }
 
-pub fn send_command(command: CollectorCommandV1) {
-	let bytes = shared_data::encode_v1(&command);
-	println!("Encoded {} bytes", bytes.len());
-	let mut stream = std::net::TcpStream::connect(DATA_COLLECTOR_ADDRESS).unwrap();
-	stream.write_all(&bytes).unwrap();
+pub fn send_command(command: &Vec<u8>) -> Result<(), CollectorError> {
+	println!("Encoded {} bytes", command.len());
+	let mut stream = TcpStream::connect(DATA_COLLECTOR_ADDRESS).map_err(|_| CollectorError::UnableToConnect)?;
+	stream
+		.write_all(&command)
+		.map_err(|_| CollectorError::UnableToSend)?;
+
+	Ok(())
+}
+
+pub fn send_queue(queue: &mut VecDeque<Vec<u8>>) -> Result<(), CollectorError> {
+	// Connect.
+	let mut stream = TcpStream::connect(DATA_COLLECTOR_ADDRESS).map_err(|_| CollectorError::UnableToConnect)?;
+
+	// Send every queue item.
+	while let Some(command) = queue.pop_front() {
+		println!("Encoded {} bytes", command.len());
+		if stream.write_all(&command).is_err() {
+			queue.push_front(command);
+			return Err(CollectorError::UnableToSend);
+		}
+	}
+
+	Ok(())
 }
