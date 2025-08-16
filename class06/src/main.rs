@@ -14,5 +14,5 @@ use prelude::*;
 
 fn main() {
 	println!("Hello, world!");
-	md_to_html::main();
+	apps::rename_seq::rename_sequence().unwrap();
 }
