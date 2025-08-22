@@ -1,7 +1,7 @@
 ﻿#![allow(unused)]
 
-
 pub mod lib {
-	pub mod getting_started;
 	pub mod application;
+	pub mod getting_started;
+	pub mod server;
 }

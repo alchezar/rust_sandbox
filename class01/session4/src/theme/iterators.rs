@@ -49,7 +49,7 @@ struct HashMapBucketIter<'a, K, V> {
 	current_vec_index: usize,
 }
 impl<K, V> crate::theme::generics::HashMapBucket<K, V> {
-	fn iter(&self) -> HashMapBucketIter<K, V> {
+	fn iter(&self) -> HashMapBucketIter<'_, K, V> {
 		let mut key_iter = self.map.iter();
 		let current_map_entry = key_iter.next();
 		HashMapBucketIter {
