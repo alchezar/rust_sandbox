@@ -28,6 +28,7 @@ members = [
 	"class02/bank",
 	"class02/procedural_macros",
 	"class03",
+	"class03/track",
 	"class04",
 	"class05",
 	"class06",
