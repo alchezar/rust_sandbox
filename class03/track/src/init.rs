@@ -17,3 +17,24 @@ pub fn error_reporting() {
 		}
 	})
 }
+
+pub fn tracing() {
+	use tracing_error::ErrorLayer;
+	use tracing_subscriber::EnvFilter;
+	use tracing_subscriber::layer::SubscriberExt;
+	use tracing_subscriber::util::SubscriberInitExt;
+
+	unsafe {
+		std::env::set_var("RUST_LOG", "info");
+	}
+
+	tracing_subscriber::registry()
+		.with(tracing_subscriber::fmt::layer().pretty())
+		.with(EnvFilter::builder().from_env_lossy())
+		.with(ErrorLayer::default())
+		.init();
+
+	tracing::info!("An info");
+	tracing::warn!("A warning");
+	tracing::error!("An error");
+}
