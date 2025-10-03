@@ -19,6 +19,7 @@ tracing-error = "0.2"
 tracing-log = "0.2"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 uuid = { version = "1.18.0", features = ["serde", "v4"] }
+peep = {path = "../peep"}
 
 [dev-dependencies]
 assert_cmd = { version = "2.0", features = ["color-auto"] }
