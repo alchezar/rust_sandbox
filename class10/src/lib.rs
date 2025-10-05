@@ -1,8 +1,8 @@
-﻿use axum::http::StatusCode;
-use axum::response::{IntoResponse, Response};
-
-pub mod lib {}
+﻿pub mod model;
 pub mod web;
+
+use axum::http::StatusCode;
+use axum::response::{IntoResponse, Response};
 
 pub type Result<T> = core::result::Result<T, Error>;
 
