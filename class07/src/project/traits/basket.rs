@@ -1,23 +1,23 @@
-﻿// IKinder
+// IKinder
 
 use super::container::Container;
 
 pub struct Basket<T> {
-	item: Option<T>,
+    item: Option<T>,
 }
 impl<T> Basket<T> {
-	pub fn new(item: T) -> Self {
-		Self { item: Some(item) }
-	}
+    pub fn new(item: T) -> Self {
+        Self { item: Some(item) }
+    }
 }
 impl<T> Container<T> for Basket<T> {
-	fn get(&mut self) -> Option<T> {
-		self.item.take()
-	}
-	fn put(&mut self, item: T) {
-		self.item = Some(item);
-	}
-	fn is_empty(&self) -> bool {
-		self.item.is_none()
-	}
+    fn get(&mut self) -> Option<T> {
+        self.item.take()
+    }
+    fn put(&mut self, item: T) {
+        self.item = Some(item);
+    }
+    fn is_empty(&self) -> bool {
+        self.item.is_none()
+    }
 }

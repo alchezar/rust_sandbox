@@ -1,4 +1,4 @@
-﻿use crate::web;
+use crate::web;
 use crate::{Error, Result};
 use axum::routing::post;
 use axum::{Json, Router};
@@ -7,26 +7,26 @@ use serde_json::{Value, json};
 use tower_cookies::{Cookie, Cookies};
 
 pub fn routes() -> Router {
-	Router::new()
-		// curl --location http://localhost:6666/api/login --header 'Content-Type: application/json' --data '{"username": "user", "password": "pass"}'
-		.route("/api/login", post(api_login))
+    Router::new()
+        // curl --location http://localhost:6666/api/login --header 'Content-Type: application/json' --data '{"username": "user", "password": "pass"}'
+        .route("/api/login", post(api_login))
 }
 
 #[derive(Debug, Deserialize)]
 struct LoginPayload {
-	username: String,
-	password: String,
+    username: String,
+    password: String,
 }
 
 async fn api_login(cookies: Cookies, Json(payload): Json<LoginPayload>) -> Result<Json<Value>> {
-	println!("->> {:<12} - api_login", "HANDLER");
+    println!("->> {:<12} - api_login", "HANDLER");
 
-	if payload.username != "user" || payload.password != "pass" {
-		return Err(Error::Any("Login fail.".to_owned()));
-	}
+    if payload.username != "user" || payload.password != "pass" {
+        return Err(Error::Any("Login fail.".to_owned()));
+    }
 
-	cookies.add(Cookie::new(web::AUTH_TOKEN, "user-1.exp.sign"));
+    cookies.add(Cookie::new(web::AUTH_TOKEN, "user-1.exp.sign"));
 
-	let body = Json(json!({"result": {"success": true}}));
-	Ok(body)
+    let body = Json(json!({"result": {"success": true}}));
+    Ok(body)
 }

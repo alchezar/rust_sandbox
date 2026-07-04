@@ -1,31 +1,31 @@
-﻿// IKinder
+// IKinder
 
 #![allow(dead_code, unused_variables)]
 
 pub fn run() {
-	println!("Hello, world!");
+    println!("Hello, world!");
 
-	let username: Option<String> = get_username(1);
-	// match username {
-	// 	Some(name) => println!("Username: {}", username),
-	// 	None => println!("Username not found"),
-	// }
+    let username: Option<String> = get_username(1);
+    // match username {
+    // 	Some(name) => println!("Username: {}", username),
+    // 	None => println!("Username not found"),
+    // }
 
-	if let Some(name) = username {
-		println!("Username: {}", name);
-	}
+    if let Some(name) = username {
+        println!("Username: {}", name);
+    }
 }
 
 fn get_username(user_id: u32) -> Option<String> {
-	let query: String = format!("GET username FROM users WHERE id={user_id}");
-	let db_result: Result<String, String> = query_db(query);
-	db_result.ok()
+    let query: String = format!("GET username FROM users WHERE id={user_id}");
+    let db_result: Result<String, String> = query_db(query);
+    db_result.ok()
 }
 
 fn query_db(query: String) -> Result<String, String> {
-	if query.is_empty() {
-		Err(String::from("Query string is empty!"))
-	} else {
-		Ok(String::from("Kinder"))
-	}
+    if query.is_empty() {
+        Err(String::from("Query string is empty!"))
+    } else {
+        Ok(String::from("Kinder"))
+    }
 }

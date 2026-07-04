@@ -1,5 +1,5 @@
-﻿// IKinder
+// IKinder
 
 pub fn main() {
-	crate::show_name(file!());
+    crate::show_name(file!());
 }

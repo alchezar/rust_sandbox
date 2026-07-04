@@ -5,20 +5,17 @@
 mod theme;
 
 pub mod prelude {
-	pub use crate::theme::*;
+    pub use crate::theme::*;
 }
 
 fn main() {
-	prelude::web_service::main();
+    prelude::web_service::main();
 }
 
 fn show_name(file: &str) -> Option<()> {
-	println!(
-		"class1::session3::{}\n",
-		file.split("\\")
-			.last()?
-			.split(".")
-			.next()?
-	);
-	Some(())
+    println!(
+        "class1::session3::{}\n",
+        file.split("\\").last()?.split(".").next()?
+    );
+    Some(())
 }

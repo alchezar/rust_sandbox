@@ -1,4 +1,4 @@
-﻿// IKinder
+// IKinder
 
 // -----------------------------------------------------------------------------
 // Smart pointers: Intro
@@ -8,21 +8,27 @@ use std::rc::Rc;
 
 #[derive(Debug)]
 struct Vehicle {
-	vin: String,
+    vin: String,
 }
 
 #[derive(Debug)]
 struct Door {
-	vehicle: Rc<Vehicle>,
+    vehicle: Rc<Vehicle>,
 }
 
 pub fn intro1() {
-	let car = Rc::new(Vehicle { vin: "123".to_owned() });
-	let left_door = Door { vehicle: Rc::clone(&car) };
-	let right_door = Door { vehicle: Rc::clone(&car) };
-	drop(car);
+    let car = Rc::new(Vehicle {
+        vin: "123".to_owned(),
+    });
+    let left_door = Door {
+        vehicle: Rc::clone(&car),
+    };
+    let right_door = Door {
+        vehicle: Rc::clone(&car),
+    };
+    drop(car);
 
-	println!("Vehicle = {:?}", left_door.vehicle);
+    println!("Vehicle = {:?}", left_door.vehicle);
 }
 
 // -----------------------------------------------------------------------------
@@ -33,53 +39,59 @@ use std::cell::{Cell, RefCell};
 
 #[derive(Debug)]
 struct Book {
-	signed: Cell<bool>,
+    signed: Cell<bool>,
 }
 
 impl Book {
-	fn sign(&self) {
-		self.signed.set(true);
-	}
-	fn signed(&self) -> bool {
-		self.signed.get()
-	}
+    fn sign(&self) {
+        self.signed.set(true);
+    }
+    fn signed(&self) -> bool {
+        self.signed.get()
+    }
 }
 
 #[derive(Debug)]
 struct Person {
-	name: RefCell<String>,
+    name: RefCell<String>,
 }
 
 pub fn intro2() {
-	let my_book = Book { signed: Cell::new(false) };
-	println!("Signed: {}", my_book.signed());
-	my_book.sign();
-	println!("Signed: {}", my_book.signed());
+    let my_book = Book {
+        signed: Cell::new(false),
+    };
+    println!("Signed: {}", my_book.signed());
+    my_book.sign();
+    println!("Signed: {}", my_book.signed());
 }
 
 pub fn intro3() {
-	let my_book = Book { signed: Cell::new(false) };
-	println!("Signed: {}", my_book.signed());
-	my_book.sign();
-	println!("Signed: {}", my_book.signed());
+    let my_book = Book {
+        signed: Cell::new(false),
+    };
+    println!("Signed: {}", my_book.signed());
+    my_book.sign();
+    println!("Signed: {}", my_book.signed());
 
-	let name = "Amy".to_owned();
-	let person = Person { name: RefCell::new(name) };
+    let name = "Amy".to_owned();
+    let person = Person {
+        name: RefCell::new(name),
+    };
 
-	let name = person.name.borrow();
-	println!("Name: {}", name);
-	drop(name);
+    let name = person.name.borrow();
+    println!("Name: {}", name);
+    drop(name);
 
-	let mut name = person.name.borrow_mut();
-	*name = "Tim".to_owned();
-	drop(name);
-	println!("Name: {}", person.name.borrow());
+    let mut name = person.name.borrow_mut();
+    *name = "Tim".to_owned();
+    drop(name);
+    println!("Name: {}", person.name.borrow());
 
-	person.name.replace("John".to_owned());
-	println!("Name: {}", person.name.borrow());
+    person.name.replace("John".to_owned());
+    println!("Name: {}", person.name.borrow());
 
-	let name = person.name.try_borrow();
-	let name = person.name.try_borrow_mut();
+    let name = person.name.try_borrow();
+    let name = person.name.try_borrow_mut();
 }
 
 // -----------------------------------------------------------------------------
@@ -88,25 +100,28 @@ pub fn intro3() {
 
 #[derive(Debug)]
 enum MenuItem {
-	Drink,
-	Salad,
+    Drink,
+    Salad,
 }
 
 #[derive(Debug)]
 struct ItemOrder {
-	item: MenuItem,
-	quantity: u32,
+    item: MenuItem,
+    quantity: u32,
 }
 
 #[derive(Debug)]
 struct TableOrder {
-	items: Vec<ItemOrder>,
+    items: Vec<ItemOrder>,
 }
 
 fn new_table_order() -> TableOrder {
-	TableOrder {
-		items: vec![ItemOrder { item: MenuItem::Drink, quantity: 1 }],
-	}
+    TableOrder {
+        items: vec![ItemOrder {
+            item: MenuItem::Drink,
+            quantity: 1,
+        }],
+    }
 }
 
 type Order = Rc<RefCell<Vec<TableOrder>>>;
@@ -119,20 +134,20 @@ struct WaitStaff(Order);
 struct Accounting(Order);
 
 pub fn demo() {
-	let orders = Rc::new(RefCell::new(vec![]));
+    let orders = Rc::new(RefCell::new(vec![]));
 
-	let chef = Chef(Rc::clone(&orders));
-	let wait_staff = WaitStaff(Rc::clone(&orders));
-	let accounting = Accounting(Rc::clone(&orders));
+    let chef = Chef(Rc::clone(&orders));
+    let wait_staff = WaitStaff(Rc::clone(&orders));
+    let accounting = Accounting(Rc::clone(&orders));
 
-	let order = new_table_order();
-	orders.borrow_mut().push(order);
+    let order = new_table_order();
+    orders.borrow_mut().push(order);
 
-	dbg!(chef.0.borrow());
-	drop(chef);
-	dbg!(wait_staff.0.borrow());
-	drop(wait_staff);
-	dbg!(accounting.0.borrow());
+    dbg!(chef.0.borrow());
+    drop(chef);
+    dbg!(wait_staff.0.borrow());
+    drop(wait_staff);
+    dbg!(accounting.0.borrow());
 }
 
 // -----------------------------------------------------------------------------
@@ -164,23 +179,23 @@ pub fn demo() {
 
 #[derive(Debug)]
 enum CorpVehicle {
-	Car,
-	Truck,
+    Car,
+    Truck,
 }
 
 #[derive(Debug, Hash, PartialOrd, PartialEq)]
 enum Status {
-	Available,
-	Unavailable,
-	Rented,
-	Maintenance,
+    Available,
+    Unavailable,
+    Rented,
+    Maintenance,
 }
 
 #[derive(Debug)]
 struct Rental {
-	status: Status,
-	vehicle: CorpVehicle,
-	vin: String,
+    status: Status,
+    vehicle: CorpVehicle,
+    vin: String,
 }
 
 type Rentals = Rc<RefCell<Vec<Rental>>>;
@@ -193,47 +208,59 @@ pub fn activity() {}
 
 #[cfg(test)]
 mod test {
-	use super::*;
+    use super::*;
 
-	#[test]
-	fn update_status() {
-		let vehicles = vec![
-			Rental {
-				status: Status::Available,
-				vehicle: CorpVehicle::Car,
-				vin: "123".to_owned(),
-			},
-			Rental {
-				status: Status::Rented,
-				vehicle: CorpVehicle::Truck,
-				vin: "234".to_owned(),
-			},
-		];
-		let vehicles: Rentals = Rc::new(RefCell::new(vehicles));
+    #[test]
+    fn update_status() {
+        let vehicles = vec![
+            Rental {
+                status: Status::Available,
+                vehicle: CorpVehicle::Car,
+                vin: "123".to_owned(),
+            },
+            Rental {
+                status: Status::Rented,
+                vehicle: CorpVehicle::Truck,
+                vin: "234".to_owned(),
+            },
+        ];
+        let vehicles: Rentals = Rc::new(RefCell::new(vehicles));
 
-		let corporate = Corporate(Rc::clone(&vehicles));
-		let store_front = StoreFront(Rc::clone(&vehicles));
+        let corporate = Corporate(Rc::clone(&vehicles));
+        let store_front = StoreFront(Rc::clone(&vehicles));
 
-		let mut rentals = store_front.0.borrow_mut();
-		if let Some(car) = rentals.get_mut(0) {
-			assert_eq!(car.status, Status::Available, "Car status should be available");
-			car.status = Status::Rented;
-		}
-		drop(rentals);
+        let mut rentals = store_front.0.borrow_mut();
+        if let Some(car) = rentals.get_mut(0) {
+            assert_eq!(
+                car.status,
+                Status::Available,
+                "Car status should be available"
+            );
+            car.status = Status::Rented;
+        }
+        drop(rentals);
 
-		let mut rentals = corporate.0.borrow_mut();
-		if let Some(truck) = rentals.get_mut(1) {
-			assert_eq!(truck.status, Status::Rented, "Truck status should be rented");
-			truck.status = Status::Available;
-		}
-		drop(rentals);
+        let mut rentals = corporate.0.borrow_mut();
+        if let Some(truck) = rentals.get_mut(1) {
+            assert_eq!(
+                truck.status,
+                Status::Rented,
+                "Truck status should be rented"
+            );
+            truck.status = Status::Available;
+        }
+        drop(rentals);
 
-		let rentals = store_front.0.borrow();
-		if let Some(car) = rentals.get(0) {
-			assert_eq!(car.status, Status::Rented, "Now car should be rented");
-		}
-		if let Some(truck) = rentals.get(1) {
-			assert_eq!(truck.status, Status::Available, "Now truck should be rented");
-		}
-	}
+        let rentals = store_front.0.borrow();
+        if let Some(car) = rentals.get(0) {
+            assert_eq!(car.status, Status::Rented, "Now car should be rented");
+        }
+        if let Some(truck) = rentals.get(1) {
+            assert_eq!(
+                truck.status,
+                Status::Available,
+                "Now truck should be rented"
+            );
+        }
+    }
 }

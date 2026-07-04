@@ -1,4 +1,4 @@
-﻿use clap::Parser;
+use clap::Parser;
 
 #[derive(Debug, thiserror::Error)]
 #[error("CLI error occurred.")]
@@ -6,34 +6,34 @@ pub struct CliError;
 
 #[derive(Debug, Clone, Copy, clap::Subcommand)]
 pub enum Command {
-	/// Start tracking time.
-	Start,
-	// Stop,
-	// Report,
+    /// Start tracking time.
+    Start,
+    // Stop,
+    // Report,
 }
 
 #[derive(Debug, clap::Parser)]
 #[command(version, about, arg_required_else_help(true))]
 pub struct Cli {
-	#[command(subcommand)]
-	pub command: Command,
+    #[command(subcommand)]
+    pub command: Command,
 }
 
 pub fn run() -> Result<(), CliError> {
-	// match command_builder().subcommand() {
-	// 	Some(("start", sub_matches)) => {
-	// 		// todo!()
-	// 	}
-	// 	_ => unreachable!(),
-	// }
-	let args = Cli::parse();
-	match args.command {
-		Command::Start => {
-			todo!();
-		}
-	}
+    // match command_builder().subcommand() {
+    // 	Some(("start", sub_matches)) => {
+    // 		// todo!()
+    // 	}
+    // 	_ => unreachable!(),
+    // }
+    let args = Cli::parse();
+    match args.command {
+        Command::Start => {
+            todo!();
+        }
+    }
 
-	// Ok(())
+    // Ok(())
 }
 
 // fn command_builder() -> clap::ArgMatches {

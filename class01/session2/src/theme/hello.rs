@@ -1,30 +1,28 @@
-﻿// IKinder
+// IKinder
 
 pub fn main() {
-	crate::show_name(file!());
-	println!("Hello from main thread!");
+    crate::show_name(file!());
+    println!("Hello from main thread!");
 
-	let mut thread_handles = Vec::new();
-	for i in 0..10 {
-		let thread_handle = std::thread::spawn(move || do_math(i));
-		thread_handles.push(thread_handle);
-	}
+    let mut thread_handles = Vec::new();
+    for i in 0..10 {
+        let thread_handle = std::thread::spawn(move || do_math(i));
+        thread_handles.push(thread_handle);
+    }
 
-	thread_handles
-		.into_iter()
-		.for_each(|h| {
-			println!("{}", h.join().unwrap());
-		});
+    thread_handles.into_iter().for_each(|h| {
+        println!("{}", h.join().unwrap());
+    });
 }
 
 fn do_math(i: u32) -> u32 {
-	let mut n = i + 1;
-	for _ in 0..10 {
-		n *= 2;
-	}
-	n
+    let mut n = i + 1;
+    for _ in 0..10 {
+        n *= 2;
+    }
+    n
 }
 
 fn hello_thread(n: u32) {
-	println!("Hello from thread {n}!")
+    println!("Hello from thread {n}!")
 }

@@ -1,5 +1,5 @@
 mod challenges;
 
 fn main() {
-	println!("Challenges!");
+    println!("Challenges!");
 }

@@ -6,13 +6,13 @@
 mod apps;
 
 mod prelude {
-	pub use crate::apps::{md_to_html, pr_scr, temp_conv, xor_cipher};
-	pub use std::collections::HashMap;
+    pub use crate::apps::{md_to_html, pr_scr, temp_conv, xor_cipher};
+    pub use std::collections::HashMap;
 }
 
 use prelude::*;
 
 fn main() {
-	println!("Hello, world!");
-	apps::rename_seq::rename_sequence().unwrap();
+    println!("Hello, world!");
+    apps::rename_seq::rename_sequence().unwrap();
 }

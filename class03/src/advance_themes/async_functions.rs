@@ -1,11 +1,11 @@
-﻿// IKinder
+// IKinder
 
 // -----------------------------------------------------------------------------
 // Arrays & Slices: Intro
 // -----------------------------------------------------------------------------
 
 async fn life() -> u32 {
-	42
+    42
 }
 
 struct Connection;
@@ -17,41 +17,41 @@ struct SessionError(String);
 pub struct ApiError(String);
 
 impl From<SessionError> for ApiError {
-	fn from(value: SessionError) -> Self {
-		ApiError(value.0)
-	}
+    fn from(value: SessionError) -> Self {
+        ApiError(value.0)
+    }
 }
 impl From<CredentialsError> for ApiError {
-	fn from(value: CredentialsError) -> Self {
-		ApiError(value.0)
-	}
+    fn from(value: CredentialsError) -> Self {
+        ApiError(value.0)
+    }
 }
 impl From<ConnectionError> for ApiError {
-	fn from(value: ConnectionError) -> Self {
-		ApiError(value.0)
-	}
+    fn from(value: ConnectionError) -> Self {
+        ApiError(value.0)
+    }
 }
 
 async fn connect() -> Result<Connection, ConnectionError> {
-	Ok(Connection)
+    Ok(Connection)
 }
 
 async fn get_credentials(conn: &Connection) -> Result<Credentials, CredentialsError> {
-	Ok(Credentials)
+    Ok(Credentials)
 }
 
 async fn generate_session(conn: &Connection, creds: &Credentials) -> Result<Session, SessionError> {
-	Ok(Session)
+    Ok(Session)
 }
 
 #[tokio::main]
 pub async fn main() -> Result<(), ApiError> {
-	let future = life();
-	let value = future.await;
-	let value = life().await;
+    let future = life();
+    let value = future.await;
+    let value = life().await;
 
-	let conn = connect().await?;
-	let creds = get_credentials(&conn).await?;
-	let session = generate_session(&conn, &creds).await?;
-	Ok(())
+    let conn = connect().await?;
+    let creds = get_credentials(&conn).await?;
+    let session = generate_session(&conn, &creds).await?;
+    Ok(())
 }

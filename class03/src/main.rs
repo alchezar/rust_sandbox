@@ -9,5 +9,5 @@ mod mini_project;
 use advance_themes::misc::topic_173 as current;
 
 fn main() {
-	current::main();
+    current::main();
 }

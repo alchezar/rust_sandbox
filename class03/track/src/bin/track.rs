@@ -1,4 +1,4 @@
-﻿use error_stack::{Result, ResultExt};
+use error_stack::{Result, ResultExt};
 use track::error::AppError;
 use track::feature::cli;
 use track::init;
@@ -10,12 +10,12 @@ use track::init;
 // track report
 
 fn main() -> Result<(), AppError> {
-	init::error_reporting();
-	init::tracing();
+    init::error_reporting();
+    init::tracing();
 
-	cli::run()
-		.change_context(AppError)
-		.attach_printable("Failed to run CLI.")?;
+    cli::run()
+        .change_context(AppError)
+        .attach_printable("Failed to run CLI.")?;
 
-	Ok(())
+    Ok(())
 }

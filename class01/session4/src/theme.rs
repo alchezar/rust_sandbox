@@ -1,11 +1,10 @@
-﻿mod default;
-pub mod memory;
+pub mod bytes;
+pub mod cycles;
+mod default;
 pub mod dropping;
-pub mod ref_count;
-pub mod traits;
 pub mod generics;
 pub mod iterators;
-pub mod cycles;
+pub mod memory;
 pub mod packing;
-pub mod bytes;
-
+pub mod ref_count;
+pub mod traits;
