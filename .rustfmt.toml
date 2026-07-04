@@ -1,8 +1,0 @@
-chain_width = 40
-control_brace_style = "AlwaysNextLine"
-end_of_line = "crlf"
-fn_call_width = 80
-hard_tabs = true
-indent_style = "Block"
-max_width = 120
-struct_lit_width = 40
