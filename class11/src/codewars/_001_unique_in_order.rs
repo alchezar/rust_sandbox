@@ -3,19 +3,26 @@ where
     T: IntoIterator,
     T::Item: PartialEq + std::fmt::Debug + Copy,
 {
-    sequence
-        .into_iter()
-        .scan(None, |prev, c| {
-            let keep = *prev != Some(c);
-            *prev = Some(c);
-            Some((keep, c))
-        })
-        .filter_map(|(keep, c)| keep.then_some(c))
-        .collect()
-
+    // V1
     // let mut result = sequence.into_iter().collect::<Vec<_>>();
     // result.dedup();
     // result
+
+    // V2
+    // sequence
+    //     .into_iter()
+    //     .scan(None, |prev, c| {
+    //         let keep = *prev != Some(c);
+    //         *prev = Some(c);
+    //         Some((keep, c))
+    //     })
+    //     .filter_map(|(keep, c)| keep.then_some(c))
+    //     .collect()
+
+    // V3
+    let mut unique = sequence.into_iter().collect::<Vec<_>>();
+    unique.dedup();
+    unique
 }
 
 #[cfg(test)]
