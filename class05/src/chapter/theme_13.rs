@@ -1,5 +1,12 @@
 // IKinder
 
+#![allow(
+    clippy::bind_instead_of_map,
+    clippy::module_inception,
+    clippy::question_mark,
+    clippy::useless_vec
+)]
+
 pub mod _1 {
     pub mod _1 {
         // FILL the blanks

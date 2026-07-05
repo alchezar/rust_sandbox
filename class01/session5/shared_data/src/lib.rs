@@ -1,6 +1,10 @@
 // IKinder
 
-#![allow(dead_code)]
+#![allow(
+    dead_code,
+    clippy::needless_borrow,
+    clippy::needless_borrows_for_generic_args
+)]
 
 use std::time::{SystemTime, UNIX_EPOCH};
 

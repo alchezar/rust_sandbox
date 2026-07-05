@@ -1,5 +1,7 @@
 // IKinder
 
+#![allow(clippy::derivable_impls)]
+
 pub fn start() {
     Temp::get_info().convert();
 }

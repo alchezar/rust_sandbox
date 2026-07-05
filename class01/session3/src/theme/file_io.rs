@@ -1,5 +1,7 @@
 // IKinder
 
+#![allow(clippy::collapsible_if)]
+
 use std::io::BufRead;
 use std::{fs, io, time};
 

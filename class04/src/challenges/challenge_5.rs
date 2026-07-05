@@ -1,5 +1,7 @@
 // IKinder
 
+#![allow(clippy::unnecessary_map_or)]
+
 /// # Easy
 /// Write a function `singleChar` which gets a string `s`, every
 /// character in `s` appears twice except for one, return from the

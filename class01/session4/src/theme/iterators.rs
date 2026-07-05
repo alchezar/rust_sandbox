@@ -1,5 +1,7 @@
 // IKinder
 
+#![allow(unused_qualifications, clippy::collapsible_if)]
+
 pub fn main() {
     crate::show_name(file!());
     let numbers = Counter::new(10).collect::<Vec<_>>();

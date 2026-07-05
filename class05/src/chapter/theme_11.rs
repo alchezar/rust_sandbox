@@ -1,3 +1,11 @@
+#![allow(
+    clippy::module_inception,
+    clippy::eq_op,
+    clippy::print_literal,
+    clippy::map_clone,
+    clippy::single_match
+)]
+
 // IKinder
 
 pub mod _2 {

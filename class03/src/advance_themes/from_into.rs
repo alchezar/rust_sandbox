@@ -1,5 +1,7 @@
 // IKinder
 
+#![allow(clippy::useless_conversion, clippy::bool_assert_comparison)]
+
 use std::convert::TryFrom;
 use thiserror::Error;
 

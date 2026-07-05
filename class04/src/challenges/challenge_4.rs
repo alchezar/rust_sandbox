@@ -1,5 +1,7 @@
 // IKinder
 
+#![allow(clippy::manual_pattern_char_comparison)]
+
 /// # K-Pair (warm-up)
 /// ## Easy
 /// Write a function which gets an array of integers `arr` and a

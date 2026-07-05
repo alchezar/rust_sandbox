@@ -1,5 +1,7 @@
 // IKinder
 
+#![allow(unused_qualifications)]
+
 use std::thread;
 
 pub fn main() {

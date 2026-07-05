@@ -1,6 +1,11 @@
 // IKinder
 
-#![allow(dead_code, unused_variables)]
+#![allow(
+    dead_code,
+    unused_variables,
+    clippy::useless_conversion,
+    clippy::redundant_closure
+)]
 
 use anyhow::Context;
 use std::collections::HashMap;

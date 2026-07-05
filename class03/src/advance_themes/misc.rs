@@ -1,5 +1,13 @@
 // IKinder
 
+#![allow(
+    clippy::field_reassign_with_default,
+    clippy::never_loop,
+    clippy::op_ref,
+    clippy::useless_vec,
+    clippy::zero_prefixed_literal
+)]
+
 // -----------------------------------------------------------------------------
 // 160. Turbofish.
 // -----------------------------------------------------------------------------

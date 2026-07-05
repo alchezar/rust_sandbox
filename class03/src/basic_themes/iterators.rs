@@ -1,5 +1,13 @@
 // IKinder
 
+#![allow(
+    clippy::iter_count,
+    clippy::needless_borrow,
+    clippy::op_ref,
+    clippy::unnecessary_lazy_evaluations,
+    clippy::useless_vec
+)]
+
 pub fn demo() {
     let numbers = vec![1, 2, 3, 4, 5];
     let mut plus_one = vec![];

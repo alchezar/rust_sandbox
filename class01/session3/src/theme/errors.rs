@@ -1,5 +1,7 @@
 // IKinder
 
+#![allow(clippy::needless_borrows_for_generic_args)]
+
 pub fn main() {
     crate::show_name(file!());
 

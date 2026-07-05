@@ -1,3 +1,5 @@
+#![allow(clippy::module_inception, clippy::eq_op, clippy::print_literal)]
+
 // IKinder
 
 pub mod _1 {
@@ -347,7 +349,7 @@ pub mod _3 {
         }
     }
     pub mod _5 {
-        use rand::{Rng, random};
+        use rand::{Rng, RngExt, random};
 
         struct Sheep {}
         struct Cow {}

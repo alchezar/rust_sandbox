@@ -1,5 +1,7 @@
 // IKinder
 
+#![allow(clippy::useless_conversion)]
+
 /// # Merge Sort
 /// ## Easy
 /// Write a function that gets two sorted lists as input, merges

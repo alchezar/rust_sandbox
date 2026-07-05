@@ -1,5 +1,13 @@
 // IKinder
 
+#![allow(
+    clippy::disallowed_names,
+    clippy::extra_unused_lifetimes,
+    clippy::module_inception,
+    clippy::needless_borrows_for_generic_args,
+    clippy::needless_lifetimes
+)]
+
 pub mod _1 {
     pub mod _1 {
         /* Annotate the lifetime of `i` and `borrow2` */

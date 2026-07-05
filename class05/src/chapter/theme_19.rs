@@ -1,5 +1,7 @@
 // IKinder
 
+#![allow(clippy::module_inception, clippy::redundant_allocation)]
+
 pub mod _1 {
     pub mod _1 {
         use std::fmt;

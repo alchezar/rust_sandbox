@@ -1,5 +1,7 @@
 // IKinder
 
+#![allow(deprecated)]
+
 use time::format_description::BorrowedFormatItem;
 
 #[tokio::main]

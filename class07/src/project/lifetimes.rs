@@ -1,5 +1,7 @@
 // IKinder
 
+#![allow(clippy::get_first, clippy::needless_borrow, clippy::ptr_arg)]
+
 pub fn run() {
     let languages = vec![
         "c++".to_owned(),

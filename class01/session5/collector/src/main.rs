@@ -1,3 +1,7 @@
+// IKinder
+
+#![allow(clippy::needless_borrow)]
+
 use shared_data::{CollectorCommandV1, DATA_COLLECTOR_ADDRESS, encode_v1};
 use std::collections::VecDeque;
 use std::io::Write;

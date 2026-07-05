@@ -1,3 +1,5 @@
+#![allow(clippy::doc_lazy_continuation)]
+
 //! * `scope` - groups routes under a common path prefix.
 //!
 //! * `resource` - one URL, different HTTP methods.

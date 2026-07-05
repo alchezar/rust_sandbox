@@ -1,3 +1,9 @@
+#![allow(
+    clippy::bool_assert_comparison,
+    clippy::redundant_closure,
+    clippy::unnecessary_lazy_evaluations
+)]
+
 #[derive(Debug, Eq, PartialEq)]
 enum Access {
     Admin,

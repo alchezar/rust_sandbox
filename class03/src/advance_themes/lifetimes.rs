@@ -1,5 +1,12 @@
 // IKinder
 
+#![allow(
+    clippy::explicit_counter_loop,
+    clippy::map_clone,
+    clippy::needless_lifetimes,
+    clippy::redundant_static_lifetimes
+)]
+
 // -----------------------------------------------------------------------------
 // Lifetimes: Intro
 // -----------------------------------------------------------------------------

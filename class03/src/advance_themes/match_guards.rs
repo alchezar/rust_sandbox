@@ -1,5 +1,11 @@
 // IKinder
 
+#![allow(
+    clippy::redundant_closure,
+    clippy::redundant_guards,
+    clippy::useless_vec
+)]
+
 // -----------------------------------------------------------------------------
 // Match guards: Demo
 // -----------------------------------------------------------------------------

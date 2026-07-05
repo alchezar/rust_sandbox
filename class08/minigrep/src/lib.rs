@@ -1,7 +1,6 @@
 // IKinder
 
-#![allow(dead_code, unused)]
-#![warn(clippy::all, clippy::must_use_candidate)]
+#![allow(dead_code, unused, clippy::must_use_candidate)]
 
 use std::error::Error;
 use std::fs;

@@ -1,5 +1,7 @@
 // IKinder
 
+#![allow(clippy::let_underscore_future)]
+
 use std::time::Duration;
 
 #[tokio::main]

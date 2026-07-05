@@ -1,6 +1,11 @@
 // IKinder
 
-#![allow(dead_code, unused_variables)]
+#![allow(
+    dead_code,
+    unused_variables,
+    clippy::unnecessary_mut_passed,
+    clippy::needless_borrow
+)]
 
 use std::ops::{Deref, DerefMut};
 

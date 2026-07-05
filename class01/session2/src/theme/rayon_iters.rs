@@ -1,5 +1,7 @@
 // IKinder
 
+#![allow(clippy::manual_is_multiple_of)]
+
 use rayon::prelude::*;
 
 pub fn main() {

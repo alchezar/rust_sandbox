@@ -1,5 +1,7 @@
 // IKinder
 
+#![allow(clippy::collapsible_if)]
+
 const MAX: u32 = 10;
 
 pub fn main() {

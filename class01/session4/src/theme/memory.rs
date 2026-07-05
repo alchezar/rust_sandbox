@@ -1,5 +1,7 @@
 // IKinder
 
+#![allow(clippy::manual_unwrap_or, clippy::useless_vec)]
+
 pub fn main() {
     crate::show_name(file!());
 

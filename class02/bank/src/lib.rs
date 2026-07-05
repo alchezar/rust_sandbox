@@ -1,5 +1,7 @@
 // IKinder
 
+#![allow(clippy::new_without_default)]
+
 /// A saving account
 pub struct SavingAccount {
     balance: i32,

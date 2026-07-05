@@ -1,6 +1,6 @@
 // IKinder
 
-#![allow(dead_code, unused_variables)]
+#![allow(dead_code, unused_variables, clippy::needless_lifetimes)]
 
 fn example_one() {
     let player1 = String::from("Player 1");

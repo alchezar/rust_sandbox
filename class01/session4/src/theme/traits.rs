@@ -1,5 +1,11 @@
 // IKinder
 
+#![allow(
+    clippy::empty_line_after_doc_comments,
+    clippy::useless_vec,
+    clippy::vec_init_then_push
+)]
+
 use std::fmt;
 
 pub fn main() {

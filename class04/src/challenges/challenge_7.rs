@@ -1,5 +1,11 @@
 // IKinder
 
+#![allow(
+    clippy::needless_range_loop,
+    clippy::ptr_arg,
+    clippy::useless_conversion
+)]
+
 /// # Easy
 /// Write a function named isPalindrome to determine if a string
 /// is a palindrome.

@@ -1,6 +1,11 @@
 // IKinder
 
-#![allow(dead_code, unused_variables, static_mut_refs)]
+#![allow(
+    dead_code,
+    unused_variables,
+    static_mut_refs,
+    clippy::missing_safety_doc
+)]
 
 pub fn run() {
     dereference_raw_pointer();

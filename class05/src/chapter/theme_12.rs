@@ -1,5 +1,15 @@
 // IKinder
 
+#![allow(
+    clippy::cast_slice_different_sizes,
+    clippy::char_lit_as_u8,
+    clippy::eq_op,
+    clippy::module_inception,
+    clippy::needless_borrows_for_generic_args,
+    clippy::size_of_ref,
+    clippy::toplevel_ref_arg
+)]
+
 pub mod _1 {
     pub mod _1 {
         // FIX the errors and FILL in the blank

@@ -1,5 +1,7 @@
 // IKinder
 
+#![allow(clippy::module_inception)]
+
 pub mod _2 {
     pub mod _2 {
         pub mod front_of_house {

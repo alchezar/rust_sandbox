@@ -1,6 +1,12 @@
 // IKinder
 
-#![allow(dead_code, unused_variables)]
+#![allow(
+    dead_code,
+    unused_variables,
+    clippy::empty_line_after_doc_comments,
+    clippy::into_iter_on_ref,
+    clippy::map_flatten
+)]
 
 use std::collections::HashMap;
 use std::iter::Iterator;

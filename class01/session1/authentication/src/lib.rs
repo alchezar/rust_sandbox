@@ -1,3 +1,7 @@
+// IKinder
+
+#![allow(clippy::needless_borrow, clippy::no_effect)]
+
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::path::Path;

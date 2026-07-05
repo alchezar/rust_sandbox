@@ -1,5 +1,7 @@
 // IKinder
 
+#![allow(clippy::needless_as_bytes)]
+
 use std::io::Write;
 
 const DATA_PATH: &str = "./bin/data.bin";

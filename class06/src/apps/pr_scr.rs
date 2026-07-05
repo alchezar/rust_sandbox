@@ -1,5 +1,7 @@
 // IKinder
 
+#![allow(clippy::redundant_closure)]
+
 use screenshots as scr;
 use std::env;
 use std::fs;

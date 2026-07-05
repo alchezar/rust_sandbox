@@ -1,5 +1,7 @@
 // IKinder
 
+#![allow(clippy::useless_vec, clippy::while_let_on_iterator)]
+
 pub fn if_let() {
     let maybe_user = Some("Kinder");
     match maybe_user {

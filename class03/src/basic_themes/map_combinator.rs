@@ -1,5 +1,7 @@
 // IKinder
 
+#![allow(clippy::explicit_auto_deref)]
+
 #[derive(Debug)]
 struct User {
     user_id: i32,

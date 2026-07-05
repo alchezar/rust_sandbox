@@ -1,5 +1,12 @@
 // IKinder
 
+#![allow(
+    unused_qualifications,
+    clippy::module_inception,
+    clippy::useless_conversion,
+    clippy::useless_vec
+)]
+
 pub mod _1 {
     pub mod _1 {
         /* Make it work with the least number of changes. */

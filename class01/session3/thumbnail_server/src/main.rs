@@ -1,6 +1,6 @@
 // IKinder
 
-// #![allow(unused)]
+#![allow(unused, clippy::redundant_static_lifetimes)]
 
 use axum::extract::path as axum_path;
 use axum::http::header;

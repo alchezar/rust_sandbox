@@ -1,5 +1,7 @@
 // IKinder
 
+#![allow(clippy::module_inception, clippy::print_literal)]
+
 pub mod _1 {
     pub mod _1 {
         pub fn main() {

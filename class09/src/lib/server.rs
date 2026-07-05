@@ -1,3 +1,5 @@
+#![allow(clippy::async_yields_async, clippy::redundant_closure)]
+
 pub mod example_1 {
     use actix_web::{App, HttpResponse, HttpServer, web};
 

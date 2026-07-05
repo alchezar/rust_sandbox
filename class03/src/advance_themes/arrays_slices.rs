@@ -1,5 +1,7 @@
 // IKinder
 
+#![allow(clippy::useless_vec, clippy::single_match, clippy::useless_conversion)]
+
 // -----------------------------------------------------------------------------
 // Arrays & Slices: Intro
 // -----------------------------------------------------------------------------

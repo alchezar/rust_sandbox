@@ -1,6 +1,6 @@
 // IKinder
 
-#![allow(dead_code, unused_variables)]
+#![allow(dead_code, unused_variables, clippy::type_complexity)]
 
 use std::ops::Deref;
 
