@@ -4,8 +4,9 @@
     clippy::disallowed_names,
     clippy::extra_unused_lifetimes,
     clippy::module_inception,
+    clippy::needless_lifetimes,
     clippy::needless_borrows_for_generic_args,
-    clippy::needless_lifetimes
+    clippy::useless_borrows_in_formatting
 )]
 
 pub mod _1 {
@@ -21,9 +22,9 @@ pub mod _1 {
             let i = 3;
             {
                 let borrow1 = &i; // `borrow1` lifetime starts. ──┐
-                //                                                │
-                println!("borrow1: {}", borrow1); //              │
-            } // `borrow1 ends. ──────────────────────────────────┘
+                //                                                      │
+                println!("borrow1: {}", borrow1); //                    │
+            } // `borrow1 ends. ────────────────────────────────────────┘
             {
                 let borrow2 = &i;
 

@@ -1,4 +1,4 @@
-﻿pub mod hello;
+pub mod hello;
 pub mod routes_login;
 
 pub const AUTH_TOKEN: &str = "auth_token";

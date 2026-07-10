@@ -1,6 +1,9 @@
 // IKinder
 
-#![allow(clippy::needless_borrows_for_generic_args)]
+#![allow(
+    clippy::needless_borrows_for_generic_args,
+    clippy::useless_borrows_in_formatting
+)]
 
 pub fn main() {
     crate::show_name(file!());
